@@ -1,6 +1,6 @@
-package com.portfolio.myportfolio.Model;
+package com.portfolio.myportfolio.s3bucket;
 
-public class S3Images {
+public class S3bucket {
 
     private int id;
     private String url;
