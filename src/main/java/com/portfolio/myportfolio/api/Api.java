@@ -16,6 +16,8 @@ public class Api {
 
     private List<S3bucket> s3Images;
 
+    public Api(){};
+
     public Api(HttpStatus status, String message, List<S3bucket> s3Images) {
         this.status = status;
         this.message = message;

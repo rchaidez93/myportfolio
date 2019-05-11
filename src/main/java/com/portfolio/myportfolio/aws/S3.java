@@ -1,12 +1,14 @@
 package com.portfolio.myportfolio.aws;
 
 import com.amazonaws.AmazonServiceException;
+import com.amazonaws.SdkClientException;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.*;
 import org.springframework.stereotype.Component;
 
+import java.io.File;
 import java.net.URL;
 import java.util.List;
 
@@ -64,6 +66,24 @@ public class S3 {
         }
 
         return true;
+    }
+
+    public String putObject(String bucket, String key, File file, String contentType){
+
+        try {
+            PutObjectRequest request = new PutObjectRequest(bucket,key,file);
+            ObjectMetadata metadata = new ObjectMetadata();
+            metadata.setContentType(contentType);
+            request.setMetadata(metadata);
+            s3.putObject(request);
+
+        }catch (AmazonServiceException e){
+            System.out.println(e.getErrorMessage());
+        }catch (SdkClientException er){
+            er.printStackTrace();
+        }
+
+        return "";
     }
 
 
