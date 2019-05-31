@@ -30,6 +30,7 @@ public class S3bucketController {
     private static AtomicInteger runCount = new AtomicInteger(0);
 
     static final String bucket = "richard.bucket1";//your bucket name
+    //few ways of storing access keys
 
 
     //get all images available in s3 bucket
